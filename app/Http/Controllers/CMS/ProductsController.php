@@ -44,15 +44,15 @@ class ProductsController extends BaseController
         $data = $this->request->all();
 
         if ($this->request->hasFile('product_image')) {
-            $registration_image = $this->repository->saveImage($this->request->file('product_image'), $this->getViewsFolder(), ['width' => 1024, 'height' => 600]);
-            if (!$registration_image) {
+            $product_image = $this->repository->saveImage($this->request->file('product_image'), $this->getViewsFolder(), ['width' => 1024, 'height' => 600]);
+            if (!$product_image) {
                 return redirect()->back()->withError('Could not save image');
             }
         }else{
-            $registration_image = $item->registration_image;
+            $product_image = $item->product_image;
         }
 
-        $data['registration_image'] = $registration_image;
+        $data['product_image'] = $product_image;
 
         $item->fill($data)->save();
 
@@ -73,7 +73,6 @@ class ProductsController extends BaseController
         if (in_array($this->request->method(), ['PUT']))
             return $this->request->validate([
                 'product_name' => 'required|max:255',
-                'product_image' => 'mimes:jpeg,bmp,png,gif|max:4000',
                 'category_name' => 'required|max:255',
                 'price' => 'required|max:255|digits_between:5,15',
                 'description' => 'required|max:255',
