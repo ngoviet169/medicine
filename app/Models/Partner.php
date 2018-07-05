@@ -24,6 +24,7 @@ class Partner extends Model
         'brand_name',
         'brand_image',
         'address',
+		'address1',
         'ward',
         'district',
         'city',

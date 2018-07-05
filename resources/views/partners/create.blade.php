@@ -91,6 +91,24 @@
                                         @endif
                                     </div>
                                 </div>
+                                <div class="form-group{{ $errors->has('address1') ? ' has-error' : '' }}">
+                                    {{Form::label('address1', trans('Địa chỉ 1'), ['class' => 'col-sm-2 control-label'])}}
+                                    <div class="col-sm-10">
+                                        {{ Form::text('address1', '',
+                                                [   'placeholder' => 'Nhập địa chỉ của đối tác',
+                                                    'data-rule-required' => 'true',
+                                                    'minlength' => '2',
+                                                    'class' => 'form-control',
+                                                    'aria-required' => 'true',
+                                                    'aria-describedby' => 'address1-error',
+                                                    'value' => 'address1'
+                                                ])
+                                        }}
+                                        @if ($errors->has('address1'))
+                                            <span id="address1-error" class="help-block" style="display: inline;">{{ $errors->first('address1') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
                                 <div class="form-group{{ $errors->has('ward') ? ' has-error' : '' }}">
                                     {{Form::label('ward', trans('Phường/Xã'), ['class' => 'col-sm-2 control-label'])}}
                                     <div class="col-sm-10">
