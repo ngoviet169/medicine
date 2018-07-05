@@ -24,3 +24,18 @@ Breadcrumbs::register('partners-edit', function ($breadcrumbs) {
     $breadcrumbs->parent('partners');
     $breadcrumbs->push('Chỉnh sửa', route('partners.create'));
 });
+
+Breadcrumbs::register('products', function ($breadcrumbs) {
+    $breadcrumbs->parent('dashboard');
+    $breadcrumbs->push('Sản phẩm', route('products.index'));
+});
+
+Breadcrumbs::register('products-create', function ($breadcrumbs) {
+    $breadcrumbs->parent('products');
+    $breadcrumbs->push('Thêm mới sản phẩm', route('products.create'));
+});
+
+Breadcrumbs::register('products-edit', function ($breadcrumbs) {
+    $breadcrumbs->parent('products');
+    $breadcrumbs->push('Chỉnh sửa sản phẩm', route('products.create'));
+});
