@@ -147,7 +147,7 @@
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
                                     {{Form::button(trans('Cập nhật'), ['type' => 'submit', 'class' => 'btn btn-primary'])}}
-                                    {{link_to_route('partners.index', 'Quay lại', null, array('class' => 'btn btn-default'))}}
+                                    {{link_to_route('products.index', 'Quay lại', null, array('class' => 'btn btn-default'))}}
                                 </div>
                             </div>
                             {!! Form::close() !!}
