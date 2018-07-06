@@ -22,15 +22,15 @@ class ProductsController extends BaseController
     {
         $this->validation();
         $data = $this->request->all();
-        $registration_image = '';
+        $product_image = '';
         if ($this->request->hasFile('product_image')) {
-            $registration_image = $this->repository->saveImage($this->request->file('product_image'), $this->getViewsFolder(), ['width' => 1024, 'height' => 600]);
-            if (!$registration_image) {
+			$product_image = $this->repository->saveImage($this->request->file('product_image'), $this->getViewsFolder(), ['width' => 1024, 'height' => 600]);
+            if (!$product_image) {
                 return redirect()->back()->withError('Could not save image');
             }
         }
 
-        $data['product_image'] = $registration_image;
+        $data['product_image'] = $product_image;
         $this->repository->create($data);
 
         return $this->redirectTo('index');
